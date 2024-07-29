@@ -37,3 +37,19 @@ python .\main.py
 Para enquadrar ao contexto do que fizeram, é só alterar o arquivo `utils/openai_connect.py` adicionando suas funções na onde está comentado.
 
 Podem clonar o projeto e fazer as alterações necessárias a vontade.
+
+## Deploy da aplicação
+Antes, é necessário subir o projeto para o GitHub.
+
+Costumo utilizar a plataforma [Render](https://render.com/). Uma vez conectado e com sua conta do Github vinculada, basta seguir os passos:
+- Em dashboard, clicar no botão `+ New`
+- Selecione a opção `Web Service`
+- Selecione o repositório do projeto
+- Em **Build Command**, colocar `pip install -r requirements.txt`
+- Em **Start Command**, colocar `uvicorn main:app --host 0.0.0.0 --port 8000`
+- em **Instance Type**, selecione `Free`
+- Na parte de **Environment Variables**, adicionar as variáveis de ambiente, igual você fez no arquivo .env explicado a cima. Os valores não precisam estar entre aspas `"`
+- Clique em **Deploy Web Service**
+
+
+Pronto! Seu chatbot está no ar! 🚀
