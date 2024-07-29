@@ -25,4 +25,6 @@ with gr.Blocks(theme='gradio/monochrome') as chatbot:
     )
 
 
-chatbot.launch()
+# Especificando a porta para a aplicação rodar
+if __name__ == "__main__":
+    chatbot.launch(server_name="0.0.0.0", server_port=8000)
