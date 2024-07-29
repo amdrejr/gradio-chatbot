@@ -1,30 +1,8 @@
-from time import sleep
-
 import gradio as gr
+from fastapi import FastAPI
 
-from utils.openai_connect import message_openai
-from utils.style import style
+from utils.gradio_ui import gradio_ui
 
+fastAPI = FastAPI()
 
-def send_messages(msg, history):
-    response = message_openai(msg)
-
-    for i in range(len(response)):
-        sleep(0.02) # Simula um delay de digitação
-        yield response[: i + 1]
-
-
-# biblioteca de themes -> https://huggingface.co/spaces/gradio/theme-gallery
-with gr.Blocks(theme='gradio/monochrome') as chatbot:
-    chat = gr.Chatbot(placeholder='Pergunte-me sobre a doc do Spotify')
-    
-    gr.ChatInterface(
-        fn=send_messages,
-        chatbot=chat,
-        # css=style, # Se preferir customizar na mão com CSS, editar o arquivo style.py
-    )
-
-
-# Especificando a porta para a aplicação rodar
-if __name__ == "__main__":
-    chatbot.launch(server_name="0.0.0.0", server_port=8000)
+app = gr.mount_gradio_app(fastAPI, gradio_ui, path='/')
