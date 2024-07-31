@@ -8,7 +8,8 @@ from utils.style import style
 
 
 def send_messages(msg, history):
-    response = message_openai(msg)
+    # response = message_openai(msg) # descomente aqui
+    response = 'Edite o arquivo utils/gradio_ui.py para habilitar a conexão com a API da OpenAI' # comente aqui
 
     for i in range(len(response)):
         sleep(0.02) # Simula um delay de digitação
