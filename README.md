@@ -3,7 +3,7 @@
 
 
 ## Passos para rodar o projeto
-Primeiro, crie uma venv:
+Primeiro, no terminal digite para criar uma venv:
 
 ```bash
 python -m venv venv
@@ -27,10 +27,12 @@ AZURE_OPENAI_API_KEY="codigo_chave"
 AZURE_OPENAI_ENDPOINT="url_do_endpoint"
 ```
 
-Por fim, rode o projeto:
+Pra evitar erros, salva tudo e reinicia o terminal e vscode para identificar o arquivo .env
+
+Por fim, para rodar o projeto, digite no terminal:
 
 ```bash
-python .\main.py
+fastapi dev
 ```
 
 ## Editar para seu contexto
